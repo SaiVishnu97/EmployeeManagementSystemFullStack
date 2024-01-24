@@ -1,0 +1,53 @@
+<!-- Header -->
+<%- include('include/_header'); -%>
+<!-- Header -->
+
+<main>
+    <div class="container">
+        <div id="AllUsers" ><i class="fa-solid fa-angles-left"></i> <a href="/">All Users</a></div>
+        <div class="card">
+            <div class="card-body">
+                <form action="/api/addusers" method="POST" id="add_user">
+                    <div class="form-group">
+                        <label for="InputEmail">Email address</label>
+                        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"
+                            placeholder="Enter email" name="emailid">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="InputName">Name</label>
+                        <input type="text" class="form-control" id="InputName" placeholder="Full Name" name="fullname">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="maleRadio" name="gender" value="male">
+                            <label class="form-check-label" for="maleRadio">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="femaleRadio" name="gender"
+                                value="female">
+                            <label class="form-check-label" for="femaleRadio">Female</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="activeRadio" name="status" value="active">
+                            <label class="form-check-label" for="activeRadio">Active</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="inactiveRadio" name="status"
+                                value="inactive">
+                            <label class="form-check-label" for="inactiveRadio">Inactive</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>

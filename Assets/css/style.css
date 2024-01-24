@@ -1,0 +1,123 @@
+#header
+{
+    background-color: rgb(147, 218, 147);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px; /* Set an appropriate height for the header */
+}
+#site-main
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+.tableCard {
+    max-width: 70%;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.thead-dark {
+    background-color: #000;
+    color: #fff;
+}
+
+.thead-color th {
+    padding: 10px;
+}
+
+
+.EditIcon,
+    .CancelIcon {
+        margin-right: 10px; /* Add some spacing between the icons */
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        transition: box-shadow 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .EditIcon i,
+    .CancelIcon i {
+        font-size: 16px; /* Set the font size of the icons */
+        color: #094585;
+    }
+   
+#AddUsers,#AllUsers {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    text-decoration: none;
+    color:  #094585;;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#AddUsers:hover,#AllUsers:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+tbody tr:hover {
+    background-color: #bbf1a1; /* Light green color on hover */
+}/* Table styles */
+.text-center
+{
+    text-decoration: none;
+    color: #000; /* Set the text color */
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px; /* Set the font size */
+}
+.thead-color{
+    background-color: #060a1859;
+    color:azure;
+}
+.card {
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 30%;
+    margin-top: 0%;
+
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-check {
+    margin-right: 20px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+#AllUsers
+{
+    margin-left: 30%;
+    margin-bottom: 10px;
+}

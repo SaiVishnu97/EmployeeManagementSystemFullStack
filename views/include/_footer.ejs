@@ -1,0 +1,26 @@
+<!--Main Site-->
+<main id="site-main">
+    <div class="tableCard"><div class="tableContainer">
+        <div id="AddUsers"><i class="fa-solid fa-user"></i> <a href="/adduser">Add Users</a></div>
+    <table class="table">
+        <thead class="thead-dark thead-color">
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%- include('_show'); -%>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    
+</main>
+<script src="js/index.js"></script>
+</body>
+</html>

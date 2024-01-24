@@ -1,0 +1,58 @@
+<!-- Header -->
+<%- include('include/_header'); -%>
+<!-- Header -->
+
+<main>
+    <div class="container">
+        <div id="AllUsers" ><i class="fa-solid fa-angles-left"></i> <a href="/">All Users</a></div>
+        <div class="card">
+            <div class="card-body">
+                <div id="EmpId <%= user.EmpId %>"style="font-weight: 700;font-size: large; margin-bottom: 20px;">Employee ID: <%= user.EmpId %></div>
+
+                <small id="FormDescription" class="form-text text-muted">Update your details and press to save.</small>
+                <form  method="POST" id="update_userform">
+                    <div class="form-group">
+                        <label for="InputEmail">Email address</label>
+                        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"
+                            placeholder="Enter email" name="emailid" value="<%= user.EmailId %>">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="InputName">Name</label>
+                        <input type="text" class="form-control" id="InputName" placeholder="Full Name" name="fullname" value="<%= user.FullName %>">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="maleRadio" name="gender" value="male" <%= user.Gender === 'male' ? 'checked':'' %> >
+                            <label class="form-check-label" for="maleRadio">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="femaleRadio" name="gender"
+                                value="female" <%= user.Gender === 'female' ? 'checked':'' %>>
+                            <label class="form-check-label" for="femaleRadio">Female</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="activeRadio" name="status" value="active" <%= user.Status === 'active' ? 'checked':'' %>>
+                            <label class="form-check-label" for="activeRadio">Active</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="inactiveRadio" name="status"
+                                value="inactive" <%= user.Status === 'inactive' ? 'checked':'' %>>
+                            <label class="form-check-label" for="inactiveRadio">Inactive</label>
+                        </div>
+                    </div>
+                    <input type="hidden" id="empId" name="empId" value="<%= user.EmpId %>">
+                    <button type="submit" class="btn btn-success btn-block">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="js/index.js"></script>
+</body>

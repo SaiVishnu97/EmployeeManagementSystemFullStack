@@ -1,0 +1,11 @@
+
+<% for( let record of AllRecords) {%>
+<tr>
+    <th scope="row"><%= record.EmpId %></th>
+    <td><%= record.FullName %></td>
+    <td><%= record.EmailId %></td>
+    <td><%= record.Gender %></td>
+    <td><%= record.Status %></td>
+    <td><a href="/updateuser?id=<%= record.EmpId %>"><span class="EditIcon"><i class="fa-solid fa-pencil"></i></span></a> <span class="CancelIcon" data-empid="<%= record.EmpId %>" ><i class="fa-solid fa-xmark"></i></span></td>
+  </tr>
+<% } %>
