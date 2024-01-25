@@ -7,10 +7,22 @@
         <div id="AllUsers" ><i class="fa-solid fa-angles-left"></i> <a href="/">All Users</a></div>
         <div class="card">
             <div class="card-body">
+                <div class="preview">
+                    <img id="file-ip-1-preview" src="img/<%= user.Imagefile %>">
+                  </div>                         
+                <label for="InputImage" class="btn">Upload Image</label>
+                <input type="file" class="form-control-file" id="InputImage" name="userImage" accept="image/*">
+                <small id="imageHelp" class="form-text text-muted">Please upload an image file (JPEG, PNG, GIF).</small>
+           
                 <div id="EmpId <%= user.EmpId %>"style="font-weight: 700;font-size: large; margin-bottom: 20px;">Employee ID: <%= user.EmpId %></div>
 
                 <small id="FormDescription" class="form-text text-muted">Update your details and press to save.</small>
-                <form  method="POST" id="update_userform">
+                <form  method="POST" id="update_userform" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="InputImage">Upload Image</label>
+                        <input type="file" class="form-control-file" id="InputImage" name="userImage" accept="image/*">
+                        <small id="imageHelp" class="form-text text-muted">Please upload an image file (JPEG, PNG, GIF).</small>
+                    </div>
                     <div class="form-group">
                         <label for="InputEmail">Email address</label>
                         <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"

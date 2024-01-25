@@ -1,22 +1,47 @@
 
 const empModel=require('../model/model')
+const fs=require('fs');
+const path=require('path');
 
+const findbyemail=async (req,res,next)=>{
+    const EmailId=req.body.emailid;
+    console.log("Middleware is called");
+    const resultboolean=await empModel.exists({EmailId});
+    console.log(EmailId,resultboolean);
+    if(resultboolean)
+    {
+        fs.unlinkSync(req.file.path);
+        return res.status(400).send({ message: "This email is already present. Please enter a new email ID." });
+       
+    }
+    next();
+}
 const createRecord=async (req,res)=>
 {
     const {body}=req;
+    console.log("File: ", req.file);
     if(!req.body){
         res.status(400).send({ message : "Content can not be emtpy!"});
         return;
     }
+    const pathdirs=path.dirname(req.file.path);
+    const ext=(req.file.originalname).split('.')[1];
+    
     try
     {
         const newRecord=new empModel({
             FullName:body.fullname,
             EmailId:body.emailid,
             Status:body.status,
-            Gender:body.gender})
+            Gender:body.gender,
+            Imagefile:"Sample."+ext,
+        })
         await newRecord.save();
-        res.redirect("/")
+        console.log(newRecord);
+        let newfilename=path.join(pathdirs,'EmpID'+newRecord.EmpId+'.'+ext);
+        console.log(newfilename);
+        fs.renameSync(req.file.path,newfilename)
+        res.redirect("/");
     }
     catch(err)
     {
@@ -65,10 +90,12 @@ const deleteRecord=(req,res)=>
 {
     const EmpId=req.query.empId;
     empModel.deleteOne({ EmpId }).then(function(){
+       
         console.log("Data deleted"); // Success
     }).catch(function(error){
         console.log(error); // Failure
     });
+    fs.unlinkSync('Assets/img/EmpID'+EmpId+'.jpeg');
     res.json({message:"Data deletion successful"})
 }
 module.exports={
@@ -76,5 +103,6 @@ module.exports={
     listUsers,
     findbyEmpId,
     updateRecord,
-    deleteRecord
+    deleteRecord,
+    findbyemail
 }

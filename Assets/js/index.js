@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  //Deletion handling logic
   const cancelIcons = document.querySelectorAll('.CancelIcon');
   cancelIcons.forEach(cancelIcon => {
     cancelIcon.addEventListener('click', async function () {
@@ -35,6 +36,25 @@ document.addEventListener('DOMContentLoaded', function () {
      
     });
   });
+  ///End of Deletion handling logic
+
+  ///Start of Image upload and preview logic
+  const previewImage=document.querySelector('#InputImage');
+   //console.log('PreviewImage',previewImage);
+   previewImage&&previewImage.addEventListener('change',(eve)=>
+   {
+    //console.log('Onchange event called');
+    if(eve.target.files.length > 0){
+      var src = URL.createObjectURL(eve.target.files[0]);
+      var preview = document.getElementById("file-ip-1-preview");
+      preview.src = src;
+      preview.style.display = "block";
+    }
+   });
+
+   //End of Image upload and preview logic
+
+   // Start of Update  record logic
     const updateuserformDOM=document.querySelector('#update_userform')
     
     updateuserformDOM&&updateuserformDOM.addEventListener('submit',function (event) {
@@ -61,6 +81,20 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           body: jsonData
         }).then(response=>response.json()).then(data=>alert("Employee record updated succesfully")).catch(err=>console.log(err))
-    })
-   
+    });
+   //End of Update record logic
+
+   //Start of Alerting having same emails logic
+
+   const inputemail=document.querySelector('input[type=email]')
+   console.log(inputemail.value);
+   const buttonele=document.querySelector('button');
+   console.log(buttonele)
+   buttonele.addEventListener('click',function(eve)
+   {
+    console.log('I am clicked');
+    // eve.preventDefault();
+    // fetch('http://localhost:3000/api/dupicateemail')
+   }
+   )
 })

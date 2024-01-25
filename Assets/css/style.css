@@ -121,3 +121,38 @@ tbody tr:hover {
     margin-left: 30%;
     margin-bottom: 10px;
 }
+img
+{
+    width: min-content;
+    height: min-content;
+}
+#InputImage {
+    display: none; /* Hide the default file input */
+}
+
+/* Style the custom button to look like a Bootstrap button */
+label[for="InputImage"] {
+    cursor: pointer;
+}
+
+/* Optional: Add styles to make it visually appealing */
+label[for="InputImage"].btn {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    width: 80%;
+    font-weight: 700;
+    color: #ced4da;
+    margin-left: 10%;
+    margin-top: 10px;
+    border-radius: 4px;
+    background-color: #0c75df;
+
+}
+
+label[for="InputImage"].btn:hover {
+    background-color: #03488d;
+}
+
+label[for="InputImage"].btn:active {
+    background-color: #e2e6ea;
+}
