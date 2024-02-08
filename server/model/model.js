@@ -36,7 +36,6 @@ empSchema.pre('save', async function (next) {
     if (!this.EmpId) {
         const lastEmployee = await this.constructor.findOne({}, {}, { sort: { EmpId: -1 } });
         this.EmpId = lastEmployee ? lastEmployee.EmpId + 100 : 100;
-        console.log(this.Imagefile.split('.').at(-1));
         this.Imagefile='EmpID'+this.EmpId+'.'+this.Imagefile.split('.').at(-1);
     }
     next();

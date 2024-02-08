@@ -5,9 +5,9 @@ const path=require('path');
 
 const findbyemail=async (req,res,next)=>{
     const EmailId=req.body.emailid;
-    console.log("Middleware is called");
+  //  console.log("Middleware is called");
     const resultboolean=await empModel.exists({EmailId});
-    console.log(EmailId,resultboolean);
+   // console.log(EmailId,resultboolean);
     if(resultboolean)
     {
         fs.unlinkSync(req.file.path);
@@ -19,7 +19,7 @@ const findbyemail=async (req,res,next)=>{
 const createRecord=async (req,res)=>
 {
     const {body}=req;
-    console.log("File: ", req.file);
+   // console.log("File: ", req.file);
     if(!req.body){
         res.status(400).send({ message : "Content can not be emtpy!"});
         return;
@@ -37,9 +37,9 @@ const createRecord=async (req,res)=>
             Imagefile:"Sample."+ext,
         })
         await newRecord.save();
-        console.log(newRecord);
+     //   console.log(newRecord);
         let newfilename=path.join(pathdirs,'EmpID'+newRecord.EmpId+'.'+ext);
-        console.log(newfilename);
+      //  console.log(newfilename);
         fs.renameSync(req.file.path,newfilename)
         res.redirect("/");
     }

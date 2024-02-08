@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const empId = this.getAttribute('data-empid');
       
       // Use the empId value as needed
-      console.log('CancelIcon clicked for EmpId:', empId);
       alert(`Are you sure you want to delete the employee with employeeId:${empId}`);
 
       const deleteurl=`http://localhost:3000/api/delete?`+new URLSearchParams({empId});
@@ -63,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Extract form data
         const formData = new FormData(event.target);
-        console.log(event.target);
         // Log the form data (you can do other processing here)
         const formObject = {};
         formData.forEach((value, key) => {
@@ -87,9 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
    //Start of Alerting having same emails logic
 
    const inputemail=document.querySelector('input[type=email]')
-   console.log(inputemail.value);
    const buttonele=document.querySelector('button');
-   console.log(buttonele)
    buttonele.addEventListener('click',function(eve)
    {
     console.log('I am clicked');
