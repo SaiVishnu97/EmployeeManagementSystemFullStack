@@ -23,6 +23,7 @@ const empSchema=new mongoose.Schema(
             default: 'Unspecified',
             enum: ['male', 'female','Unspecified']
         },
+        Imagefile: String,
         Status:
         {
             type: String,
@@ -35,6 +36,7 @@ empSchema.pre('save', async function (next) {
     if (!this.EmpId) {
         const lastEmployee = await this.constructor.findOne({}, {}, { sort: { EmpId: -1 } });
         this.EmpId = lastEmployee ? lastEmployee.EmpId + 100 : 100;
+        this.Imagefile='EmpID'+this.EmpId+'.'+this.Imagefile.split('.').at(-1);
     }
     next();
 });
