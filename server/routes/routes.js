@@ -13,7 +13,6 @@ const storage=multer.diskStorage({
     },
     filename: (req, file, cb) => {
         // Combine the Date in milliseconds and original name and pass as filename
-        console.log(file)
         cb(null, `${file.originalname}`);
     }
 });
