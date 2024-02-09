@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   //Deletion handling logic
+  const MAIN_URL=document.querySelector('#mainurl').getAttribute('data-message');
   const cancelIcons = document.querySelectorAll('.CancelIcon');
   cancelIcons.forEach(cancelIcon => {
     cancelIcon.addEventListener('click', async function () {
@@ -10,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
       // Use the empId value as needed
       alert(`Are you sure you want to delete the employee with employeeId:${empId}`);
-
-      const deleteurl=`${process.env.MAIN_URL}/api/delete?`+new URLSearchParams({empId});
+      const deleteurl=`${MAIN_URL}/api/delete?`+new URLSearchParams({empId});
       try{
         const response=await fetch(deleteurl,{
           method : 'DELETE',
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Log the form data (you can do other processing here)
         const jsonData = JSON.stringify(formObject);
-        const updateurl='${process.env.MAIN_URL}/api/updateuser'
+        const updateurl=`${MAIN_URL}/api/updateuser`
         fetch(updateurl,{
           method : "PUT",
           headers: {
@@ -84,13 +84,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
    //Start of Alerting having same emails logic
 
-   const inputemail=document.querySelector('input[type=email]')
-   const buttonele=document.querySelector('button');
-   buttonele.addEventListener('click',function(eve)
-   {
-    console.log('I am clicked');
-    // eve.preventDefault();
-    // fetch('${process.env.MAIN_URL}/api/dupicateemail')
-   }
-   )
+  //  const inputemail=document.querySelector('input[type=email]')
+  //  const buttonele=document.querySelector('button');
+  //  buttonele.addEventListener('click',function(eve)
+  //  {
+  //   console.log('I am clicked');
+  //   // eve.preventDefault();
+  //   // fetch('${MAIN_URL}/api/dupicateemail')
+  //  }
+  //  )
 })

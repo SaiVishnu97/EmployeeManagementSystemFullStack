@@ -3,7 +3,9 @@ const dotenv=require('dotenv'); // for using the env variables from a config env
 const morgan=require('morgan'); //for logging the api requests
 const path=require('path'); //Useful for specifying the directories and their paths
 const bodyparser=require('body-parser');
+const cors=require('cors');
 const app=Express();
+app.use(cors());
 const {connectDB}= require('./server/database/mongodb')
 dotenv.config({path: 'config.env'});
 const PORT=process.env.PORT;
