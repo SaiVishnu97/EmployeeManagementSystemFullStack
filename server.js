@@ -24,4 +24,4 @@ app.use('/Assets/css',Express.static('./Assets/css'))
 const routes=require('./server/routes/routes')
 app.use(routes)
 
-app.listen(PORT,()=>console.log(`Server listening on port number ${PORT} `))
+app.listen(PORT,()=>console.log(`Server listening on port number ${PORT} open the url ${process.env.MAIN_URL}`))
