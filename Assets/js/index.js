@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Use the empId value as needed
       alert(`Are you sure you want to delete the employee with employeeId:${empId}`);
 
-      const deleteurl=`http://localhost:3000/api/delete?`+new URLSearchParams({empId});
+      const deleteurl=`${process.env.MAIN_URL}/api/delete?`+new URLSearchParams({empId});
       try{
         const response=await fetch(deleteurl,{
           method : 'DELETE',
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Log the form data (you can do other processing here)
         const jsonData = JSON.stringify(formObject);
-        const updateurl='http://localhost:3000/api/updateuser'
+        const updateurl='${process.env.MAIN_URL}/api/updateuser'
         fetch(updateurl,{
           method : "PUT",
           headers: {
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
    {
     console.log('I am clicked');
     // eve.preventDefault();
-    // fetch('http://localhost:3000/api/dupicateemail')
+    // fetch('${process.env.MAIN_URL}/api/dupicateemail')
    }
    )
 })
